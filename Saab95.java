@@ -15,6 +15,7 @@ public class Saab95{
         enginePower = 125;
 	    turboOn = false;
         modelName = "Saab95";
+        System.out.println("HEJEHJEHJEHJ");
         stopEngine();
     }
     
