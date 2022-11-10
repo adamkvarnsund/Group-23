@@ -16,9 +16,8 @@ abstract class Car {
         stopEngine();
     }
 
-    
-    void stopEngine() {
-        currentSpeed = 0;
+    public String getModelName() {
+        return modelName;
     }
 
     public int getNrDoors(){
@@ -35,5 +34,25 @@ abstract class Car {
     
     public Color getColor(){
         return color;
+    }
+
+    public void setColor(Color clr){
+	    color = clr;
+    }
+
+    public void startEngine(){
+	    currentSpeed = 0.1;
+    }
+
+    public void stopEngine(){
+	    currentSpeed = 0;
+    }
+
+    // importante 
+    public boolean isNameAdam(String name){
+        if (name == "Adam"){
+            return true;
+        }
+        return false;
     }
 }
