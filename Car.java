@@ -1,11 +1,13 @@
 import java.awt.*;
 
-abstract class Car {
+abstract class Car implements Movable {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
+    private double x;
+    private double y;
 
 
     public Car(int nrDoors, double enginePower, Color color, String modelName){
@@ -57,6 +59,38 @@ abstract class Car {
     public abstract void decrementSpeed(double amount);
     
     public abstract double speedFactor();
+
+    public void increaseX(double x){
+        this.x += x;
+    }
+
+    public void increaseY(double y){
+        this.y += y;
+    }
+
+    public double getX(){
+        return x;
+    }
+
+    public double getY(){
+        return y;
+    }
+
+    public void move(){
+        increaseX(getX() + (Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed()));
+        increaseY(getY() + (Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed()));
+    }
+
+    public void turnLeft(){
+        
+    }
+
+    public void turnRight(){
+
+    }
+
+
+
 
 
     // TODO fix this method according to lab pm
