@@ -51,4 +51,21 @@ abstract class Car {
     public void stopEngine(){
 	    currentSpeed = 0;
     }
+
+    public abstract void incrementSpeed(double amount);
+
+    public abstract void decrementSpeed(double amount);
+    
+    public abstract double speedFactor();
+
+
+    // TODO fix this method according to lab pm
+    public void gas(double amount){
+        incrementSpeed(amount);
+    }
+
+    // TODO fix this method according to lab pm
+    public void brake(double amount){
+        decrementSpeed(amount);
+    }
 }
