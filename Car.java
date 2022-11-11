@@ -31,6 +31,10 @@ abstract class Car {
     public double getCurrentSpeed(){
         return currentSpeed;
     }
+
+    public void setCurrentSpeed(double currentSpeed){
+        this.currentSpeed = currentSpeed;
+    }
     
     public Color getColor(){
         return color;
@@ -46,13 +50,5 @@ abstract class Car {
 
     public void stopEngine(){
 	    currentSpeed = 0;
-    }
-
-    // importante 
-    public boolean isNameAdam(String name){
-        if (name == "Adam"){
-            return true;
-        }
-        return false;
     }
 }
