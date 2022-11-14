@@ -8,6 +8,7 @@ abstract class Car implements Movable {
     private String modelName; // The car model name
     private double x;
     private double y;
+    private int direction = 1;
 
 
     public Car(int nrDoors, double enginePower, Color color, String modelName){
@@ -60,32 +61,38 @@ abstract class Car implements Movable {
     
     public abstract double speedFactor();
 
-    public void increaseX(double x){
-        this.x += x;
-    }
-
-    public void increaseY(double y){
-        this.y += y;
-    }
-
-    public double getX(){
-        return x;
-    }
-
-    public double getY(){
-        return y;
-    }
 
     public void move(){
-        increaseX(getX() + (Math.cos(Math.toRadians(getDirection())) * getCurrentSpeed()));
-        increaseY(getY() + (Math.sin(Math.toRadians(getDirection())) * getCurrentSpeed()));
+
+        switch (direction){
+            case 1: 
+                x += currentSpeed;
+            case 2: 
+                y += currentSpeed;
+            case 3: 
+                x -= currentSpeed;
+            case 4: 
+                y -= currentSpeed;
+        }
+
     }
 
     public void turnLeft(){
         
+        if (direction == 1){
+            direction = 4;
+        }else {
+            direction--;
+        }
+
     }
 
     public void turnRight(){
+        if (direction == 4){
+            direction = 1;
+        }else{
+            direction++;
+        }
 
     }
 
