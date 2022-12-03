@@ -13,4 +13,4 @@ The reason for that is to reduce code duplication and make it simple to add new 
 All the sanity checks were added with if-statements. 
 The gas() and brake() methods first run an if statement to check if the argument is between [0, 1], if it's not the method throws an error. 
 Almost the same goes for currentSpeed except that there's not an error thrown, instead setCurrentSpeed(speed) is just not run if speed > currentSpeed. 
-Gas and Break may never cause the speed to decrease respectively increase as the newSpeed needs to be appropriate for it to get set to the new speed. 
+Gas and Break may never cause the speed to decrease respectively increase as newSpeed needs to be appropriate for it to get set to the new speed. 
