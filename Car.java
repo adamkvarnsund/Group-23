@@ -6,9 +6,8 @@ abstract class Car implements Movable {
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private double x;
-    private double y;
-    private int direction = 1;
+    private double posx, posy;
+    private Direction direction;
 
 
     public Car(int nrDoors, double enginePower, Color color, String modelName){
@@ -16,6 +15,9 @@ abstract class Car implements Movable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.direction = Direction.RIGHT;
+        this.posx = 0;
+        this.posy = 0;
         stopEngine();
     }
 
@@ -63,28 +65,17 @@ abstract class Car implements Movable {
 
 
     public void move(){
-
-        switch (direction){
-            case 1: 
-                x += currentSpeed;
-            case 2: 
-                y += currentSpeed;
-            case 3: 
-                x -= currentSpeed;
-            case 4: 
-                y -= currentSpeed;
+        switch(direction) {
+            case UP: posy += currentSpeed; break;
+            case LEFT: posx -= currentSpeed; break;
+            case DOWN: posy -= currentSpeed; break;
+            case RIGHT: posx += currentSpeed; break;
         }
-
     }
 
     public void turnLeft(){
-        
-        if (direction == 1){
-            direction = 4;
-        }else {
-            direction--;
-        }
-
+        int index = (direction.ordinal() + 3) % 4;
+        direction = Direction.values()[index];
     }
 
     public void turnRight(){
