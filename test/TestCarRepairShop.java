@@ -1,10 +1,7 @@
 package test;
 
-import src.State;
-import src.CarRepairShop;
-import src.Saab95;
-
 import static org.junit.jupiter.api.Assertions.*;
+import Model.*;
 
 import org.junit.jupiter.api.*;
 
@@ -18,12 +15,13 @@ public class TestCarRepairShop {
      
     @BeforeEach
     public void reset() {
-        repairShop = new CarRepairShop();
+        repairShop = new CarRepairShop(12);
     }
 
     @Test
     public void testNewCar() {
-        Car car = new Saab95()
-        repairShop.add(car)
-        assertEquals(1, repairShop.getLoadedCars().getAmount())
+        Car car = new Saab95();
+        repairShop.loadCar(car);
+        assertEquals(1, repairShop.getLoadedCars().getAmount());
+    }
 }

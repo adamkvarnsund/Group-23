@@ -1,12 +1,13 @@
 package test;
 
-import src.Direction;
-import src.Saab95;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
-public class TestCar {
+import Model.Direction;
+import Model.Saab95;
+
+public class TestSaab95 {
 
     @Test
     public void demoTestMethod() {

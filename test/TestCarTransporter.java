@@ -1,12 +1,12 @@
 package test;
 
-import src.State;
-import src.CarTransporter;
-import src.Saab95;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
+
+import Model.CarTransporter;
+import Model.Saab95;
+import Model.State;
 
 public class TestCarTransporter {
     @Test

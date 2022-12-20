@@ -1,20 +1,19 @@
-package src;
+package Model;
 
 import java.util.*;
 
-public class Loadable {
+public class Loadable<T extends Car> {
     
     private final int CAPACITY;
     private final int MAXDISTANCE;
-    private List<Car> carsLoaded;
+    private List<T> carsLoaded;
 
     public Loadable(int capacity, int maxDistanceBetweenStation) {
         CAPACITY = capacity;
         MAXDISTANCE = maxDistanceBetweenStation;
-        carsLoaded = new ArrayList<Car>();
     }
 
-    public List<Car> getCarsLoaded() {
+    public List<T> getCarsLoaded() {
         return carsLoaded;
     }
 
@@ -22,19 +21,22 @@ public class Loadable {
         return carsLoaded.size();
     }
 
-    public boolean containsCar(Car car) {
+    public boolean containsCar(T car) {
         return carsLoaded.contains(car);
     }
 
-    public void addCar(Car car) {
+    public void loadCar(T car) {
+        if (carsLoaded.contains(car)) {throw new IllegalArgumentException("Car already loaded");}
+        if (carsLoaded.size() >= CAPACITY) {throw new IllegalCallerException("Unable to load more cars!");}
         carsLoaded.add(car);
     }
 
-    public void removeCar(Car car) {
+    public void unloadCar(Car car) {
+        if (!carsLoaded.contains(car)) {throw new IllegalArgumentException("Car not loaded");}
         carsLoaded.remove(car);
     }
 
-    public void removeCar() {
+    public void unloadCar() {
         carsLoaded.remove(carsLoaded.size()-1);
     }
 

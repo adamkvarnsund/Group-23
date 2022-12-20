@@ -1,4 +1,4 @@
-package src;
+package Model;
 public enum Direction {
     UP,
     RIGHT,
